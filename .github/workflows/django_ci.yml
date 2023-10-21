@@ -29,7 +29,7 @@ jobs:
           submodules: recursive
 
       - name: Set up Python
-        uses: actions/setup-python@v2
+        uses: actions/setup-python@v2.3.0
         with:
           python-version: 3.11
 
@@ -48,7 +48,8 @@ jobs:
 
       - name: Test with pytest
         run:
-          pipenv run pytest pypro --cov=pypro
+          pipenv run pytest mysite
+#          pipenv run pytest mysite --cov=mysite
 
       - name: Posting Coverage
         env:
