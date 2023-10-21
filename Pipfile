@@ -5,9 +5,13 @@ name = "pypi"
 
 [packages]
 django = "*"
+gunicorn = "*"
 
 [dev-packages]
 flake8 = "*"
+pytest-django = "*"
+codecov = "*"
+pytest-cov = "*"
 
 [requires]
 python_version = "3.11"

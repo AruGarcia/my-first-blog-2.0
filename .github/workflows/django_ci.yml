@@ -1,0 +1,57 @@
+name: Python application
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    env:
+      PIPENV_NO_INHERIT: 1
+      PIPENV_IGNORE_VIRTUALENVS: 1
+#      DATABASE_URL: postgres://postgres:postgres@localhost:5432/cursodjango
+    runs-on: ubuntu-latest
+
+#    services:
+#      postgres:
+#        image: postgres
+#        env:
+#          POSTGRES_USER: postgres
+#          POSTGRES_PASSWORD: postgres
+#          POSTGRES_DB: cursodjango
+#        ports: [ '5432:5432' ]
+
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          submodules: recursive
+
+      - name: Set up Python
+        uses: actions/setup-python@v2.3.0
+        with:
+          python-version: 3.11
+
+      - name: Copying configurations
+        run: |
+          cp contrib/env-sample .env
+
+      - name: Install dependencies
+        run: |
+          pip install pipenv
+          pipenv sync --dev
+
+      - name: Lint with flake8
+        run: |
+          pipenv run flake8 .
+
+#      - name: Test with pytest
+#        run:
+#          pipenv run pytest mysite --cov=mysite
+
+      - name: Posting Coverage
+        env:
+          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
+        run: |
+          pipenv run codecov
