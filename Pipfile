@@ -12,6 +12,7 @@ flake8 = "*"
 pytest-django = "*"
 codecov = "*"
 pytest-cov = "*"
+model-bakery = "*"
 
 [requires]
 python_version = "3.11"
