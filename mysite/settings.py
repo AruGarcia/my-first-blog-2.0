@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    'collectfast',
     'django.contrib.staticfiles',
     'mysite.base',
     'mysite.blog'
@@ -128,7 +129,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 MEDIA_URL = '/media/'
 STATIC_MEDIA = os.path.join(BASE_DIR, 'mediafiles')
 
-# COLLECTFAST_ENABLE = False
+COLLECTFAST_ENABLE = False
 
 AWS_ACCESS_KEY_ID = config('AWS_ACCESS_KEY_ID')
 
@@ -146,8 +147,8 @@ if AWS_ACCESS_KEY_ID:
     AWS_QUERYSTRING_AUTH = True
     AWS_S3_CUSTOM_DOMAIN = None
 
-    # COLLECTFAST_STRATEGY = "collectfast.strategies.boto3.Boto3Strategy"
-    # COLLECTFAST_ENABLE = True
+    COLLECTFAST_STRATEGY = "collectfast.strategies.boto3.Boto3Strategy"
+    COLLECTFAST_ENABLE = True
 
     AWS_DEFAULT_ACL = None
 
