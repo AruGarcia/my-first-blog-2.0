@@ -7,6 +7,8 @@ AWS_SECRET_ACCESS_KEY = config('AWS_SECRET_ACCESS_KEY')
 AWS_STORAGE_BUCKET_NAME = config('AWS_STORAGE_BUCKET_NAME')
 
 
+@patch.object(settings, 'AWS_ACCESS_KEY_ID', 'mock_access_key')
+@patch.object(settings, 'AWS_SECRET_ACCESS_KEY', 'mock_secret_key')
 @pytest.mark.django_db
 def test_aws_configuration():
     required_settings = [

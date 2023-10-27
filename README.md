@@ -1,5 +1,7 @@
 # my-first-blog-2.0
 
+Python version: 3.11.4
+
 ## My Application
 
 python version = 3.11.4
