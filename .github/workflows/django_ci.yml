@@ -48,10 +48,10 @@ jobs:
 
       - name: Test with pytest
         run:
-          pipenv run pytest mysite --cov=mysite -k "not local_only"
+          pipenv run pytest mysite --cov=mysite
 
-#      - name: Posting Coverage
-#        env:
-#          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
-#        run: |
-#          pipenv run codecov
+      - name: Posting Coverage
+        env:
+          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
+        run: |
+          pipenv run codecov
