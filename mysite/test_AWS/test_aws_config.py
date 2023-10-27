@@ -4,6 +4,7 @@ from django.conf import settings
 
 
 @pytest.mark.django_db
+@pytest.mark.local_only
 def test_aws_configuration():
     required_settings = [
         'AWS_ACCESS_KEY_ID',
