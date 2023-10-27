@@ -1,10 +1,5 @@
 import pytest
-from decouple import config
 from django.conf import settings
-
-AWS_ACCESS_KEY_ID = config('AWS_ACCESS_KEY_ID')
-AWS_SECRET_ACCESS_KEY = config('AWS_SECRET_ACCESS_KEY')
-AWS_STORAGE_BUCKET_NAME = config('AWS_STORAGE_BUCKET_NAME')
 
 
 @pytest.mark.django_db
@@ -31,4 +26,4 @@ def test_aws_configuration():
     ]
 
     for setting_name in required_settings:
-        assert setting_name, f"Missing setting: {setting_name}"
+        assert hasattr(settings, setting_name), f"Missing setting: {setting_name}"
