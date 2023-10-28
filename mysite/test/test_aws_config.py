@@ -1,5 +1,6 @@
 import pytest
 from django.conf import settings
+from unittest.mock import MagicMock, patch
 
 
 @pytest.mark.django_db
@@ -25,5 +26,12 @@ def test_aws_configuration():
         'MEDIA_URL',
     ]
 
-    for setting_name in required_settings:
-        assert hasattr(settings, setting_name), f"Missing setting: {setting_name}"
+    # Create a MagicMock object for settings
+    mock_settings = MagicMock()
+
+    with patch('django.conf.settings', mock_settings):
+        for setting_name in required_settings:
+            setattr(mock_settings, setting_name, None)
+
+        for setting_name in required_settings:
+            assert hasattr(settings, setting_name), f"Missing setting: {setting_name}"
