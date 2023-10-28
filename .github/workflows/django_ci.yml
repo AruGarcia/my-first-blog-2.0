@@ -11,7 +11,7 @@ jobs:
     env:
       PIPENV_NO_INHERIT: 1
       PIPENV_IGNORE_VIRTUALENVS: 1
-#      DATABASE_URL: postgres://postgres:postgres@localhost:5432/myblog
+      DATABASE_URL: postgres://postgres:postgres@localhost:5432/testdb
     runs-on: ubuntu-latest
 
     services:
@@ -36,8 +36,8 @@ jobs:
       - name: Copying configurations
         run: |
           cp contrib/env-sample .env
-          echo "AWS_ACCESS_KEY_ID=${{ secrets.AWS_ACCESS_KEY_ID }}" >> .env
-          echo "AWS_SECRET_ACCESS_KEY=${{ secrets.AWS_SECRET_ACCESS_KEY }}" >> .env
+#          echo "AWS_ACCESS_KEY_ID=${{ secrets.AWS_ACCESS_KEY_ID }}" >> .env
+#          echo "AWS_SECRET_ACCESS_KEY=${{ secrets.AWS_SECRET_ACCESS_KEY }}" >> .env
 
       - name: Install dependencies
         run: |
