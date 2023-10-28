@@ -1,5 +1,6 @@
 # Define a fixture to create a random 'Post' object
 import pytest
+
 from mysite.blog.models import Post
 from model_bakery import baker
 
