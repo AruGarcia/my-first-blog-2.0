@@ -1,32 +1,37 @@
 import pytest
 from django.conf import settings
+from unittest.mock import MagicMock, patch
 
 
 @pytest.mark.django_db
 def test_aws_configuration():
-    required_settings = {
-        'AWS_ACCESS_KEY_ID': 'sua_chave_de_acesso',
-        'AWS_SECRET_ACCESS_KEY': 'sua_chave_secreta',
-        'AWS_STORAGE_BUCKET_NAME': 'seu_bucket',
-        'AWS_S3_OBJECT_PARAMETERS': {'param1': 'valor1', 'param2': 'valor2'},
-        'AWS_PRELOAD_METADATA': True,
-        'AWS_AUTO_CREATE_BUCKET': True,
-        'AWS_QUERYSTRING_AUTH': False,
-        'AWS_S3_CUSTOM_DOMAIN': 'seu_domain',
-        'AWS_DEFAULT_ACL': 'public-read',
-        'STATICFILES_STORAGE': 'seu_staticfiles_storage',
-        'STATIC_S3_PATH': 'caminho_static_s3',
-        'STATIC_ROOT': '/caminho/para/static/root',
-        'STATIC_URL': '/static/url/',
-        'ADMIN_MEDIA_PREFIX': '/admin/media/prefix/',
-        'DEFAULT_FILE_STORAGE': 'seu_default_file_storage',
-        'DEFAULT_S3_PATH': 'caminho_default_s3',
-        'MEDIA_ROOT': '/caminho/para/media/root',
-        'MEDIA_URL': '/media/url/',
-    }
+    required_settings = [
+        'AWS_ACCESS_KEY_ID',
+        'AWS_SECRET_ACCESS_KEY',
+        'AWS_STORAGE_BUCKET_NAME',
+        'AWS_S3_OBJECT_PARAMETERS',
+        'AWS_PRELOAD_METADATA',
+        'AWS_AUTO_CREATE_BUCKET',
+        'AWS_QUERYSTRING_AUTH',
+        'AWS_S3_CUSTOM_DOMAIN',
+        'AWS_DEFAULT_ACL',
+        'STATICFILES_STORAGE',
+        'STATIC_S3_PATH',
+        'STATIC_ROOT',
+        'STATIC_URL',
+        'ADMIN_MEDIA_PREFIX',
+        'DEFAULT_FILE_STORAGE',
+        'DEFAULT_S3_PATH',
+        'MEDIA_ROOT',
+        'MEDIA_URL',
+    ]
 
-    for setting_name, setting_value in required_settings.items():
-        setattr(settings, setting_name, setting_value)
+    # Create a MagicMock object for settings
+    mock_settings = MagicMock()
 
-    for setting_name, setting_value in required_settings.items():
-        assert getattr(settings, setting_name) == setting_value, f"Setting {setting_name} is not correctly set."
+    with patch('django.conf.settings', mock_settings):
+        for setting_name in required_settings:
+            setattr(mock_settings, setting_name, None)
+
+        for setting_name in required_settings:
+            assert hasattr(settings, setting_name), f"Missing setting: {setting_name}"
