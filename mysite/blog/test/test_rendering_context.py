@@ -43,8 +43,6 @@ def test_render_posts_template(posts):
 
     rendered_template = template.render(context)
 
-    print(rendered_template)
-
     for post in formatted_posts:
         assert f"published: {post['published_date']}" in rendered_template
         assert f"<h2><a href=\"\">{post['title']}</a></h2>" in rendered_template

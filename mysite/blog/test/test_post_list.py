@@ -10,3 +10,8 @@ def resp(client, db):
 
 def test_status_code(resp):
     assert resp.status_code == 200
+
+
+def test_title(resp):
+    content = resp.content.decode("utf-8")
+    assert "Django Girls blog" in content
