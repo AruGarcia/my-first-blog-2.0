@@ -38,6 +38,7 @@ jobs:
           cp contrib/env-sample .env
           echo "AWS_ACCESS_KEY_ID=asdfasdfasdfasdfasedfasd" >> .env
           echo "AWS_SECRET_ACCESS_KEY=asdfasdfasdfasdfasdfasdfasdfa" >> .env
+          echo "AWS_STORAGE_BUCKET_NAME=dsfasldkjfasldkjfasldkfjalskdjfas" >> .env
 
       - name: Install dependencies
         run: |
