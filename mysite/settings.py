@@ -136,7 +136,6 @@ AWS_ACCESS_KEY_ID = config('AWS_ACCESS_KEY_ID')
 # STORAGE CONFIGURATION IN S3 AWS
 # ___________________________________________________
 if AWS_ACCESS_KEY_ID:
-
     # STATICFILES_STORAGE = "storages.backends.s3boto3.S3Boto3Storage"
 
     AWS_SECRET_ACCESS_KEY = config('AWS_SECRET_ACCESS_KEY')
@@ -150,7 +149,7 @@ if AWS_ACCESS_KEY_ID:
     COLLECTFAST_STRATEGY = "collectfast.strategies.boto3.Boto3Strategy"
     COLLECTFAST_ENABLE = True
 
-    AWS_DEFAULT_ACL = None
+    AWS_DEFAULT_ACL = 'private'
 
     # Static Assets
     # ------------------------------------------------------------------------------
