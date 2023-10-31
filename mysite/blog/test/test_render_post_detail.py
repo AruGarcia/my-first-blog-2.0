@@ -26,6 +26,8 @@ def test_blog_post_render(client, db):
     url = reverse('blog:post_detail', kwargs={'pk': post.pk})
     response = client.get(url)
 
+    # print(response.content.decode('utf-8'))
+
     assert response.status_code == 200
     # assert b"user" in response.content
     assert b"Test Blog Post" in response.content  # Check for the post title in the response
