@@ -7,17 +7,16 @@ from mysite.blog.models import Post
 
 @pytest.mark.django_db
 def test_post_new_view(client):
-    # Cria um usuário de teste
+    # Bild a user for the test
     User.objects.create_user(username='testuser', password='testpass')
 
-    # Faz login do usuário de teste
+    # log in of the user
     client.login(username='testuser', password='testpass')
 
-    # Define os dados do formulário
+    # Define the form data
     form_data = {
         'title': 'Test Title',
         'text': 'Test Content',
-        # Adicione outros campos do formulário aqui
     }
 
     # Faz uma requisição POST para a view
@@ -28,3 +27,8 @@ def test_post_new_view(client):
 
     # Verifica se o post foi criado
     assert Post.objects.filter(title='Test Title', text='Test Content').exists()
+
+    # Verifica o comportamento quando o método da requisição não é "POST"
+    response_get = client.get(reverse('blog:post_new'))
+    assert response_get.status_code == 200  # Ou o código de status adequado para visualização do formulário de criação
+    # Adicione outras asserções relacionadas à visualização do formulário aqui
