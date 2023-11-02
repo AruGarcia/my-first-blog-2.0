@@ -11,15 +11,18 @@
     </head>
         <body>
             <header class="page-header">
-              <div class="container">
-                  <h1><a href="/mysite/blog/static">Django Girls Blog</a></h1>
-              </div>
+                <div class="container">
+                    <a href="{% url 'blog:post_new' %}" class="top-menu">
+                    <span class="glyphicon glyphicon-plus"></span>
+                    </a>
+                    <h1><a href="/">Django Girls Blog</a></h1>
+                </div>
             </header>
-            <main class="container">
+            <main class="content container">
                 <div class="row">
                     <div class="col">
-                    {% block content %}
-                    {% endblock %}
+                        {% block content %}
+                        {% endblock %}
                     </div>
                 </div>
             </main>
