@@ -31,3 +31,8 @@ def test_post_new_view(client):
     # Check the behavior when the request method is not "POST"
     response_get = client.get(reverse('blog:post_new'))
     assert response_get.status_code == 200
+
+    # Verifica o comportamento quando o método da requisição não é "POST"
+    response_get = client.get(reverse('blog:post_new'))
+    assert response_get.status_code == 200 
+    

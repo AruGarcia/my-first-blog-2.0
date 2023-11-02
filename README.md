@@ -1,5 +1,6 @@
 # Extended Django Girls Project (Django Girls 2.0)
 
+
 ![Logo do Projeto](https://djangogirls.org/static/img/global/resources/tutorial.jpg)
 
 This project is an extended version of the [Django Girls Tutorial](https://djangogirls.org/), in which new features and technologies have been added to apply web development knowledge. The application has been tested using Pytest and utilizes the PostgreSQL database.
