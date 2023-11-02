@@ -1,6 +1,6 @@
 # Extended Django Girls Project (Django Girls 2.0)
 
-![Logo do Projeto](https://64.media.tumblr.com/avatar_d3f67f5364f4_128.pnj),
+![Logo do Projeto](https://64.media.tumblr.com/avatar_d3f67f5364f4_128.pnj)
 
 Site deployed on: [my-first-blog](https://my-first-blog.fly.dev/)
 
