@@ -19,16 +19,15 @@ def test_post_new_view(client):
         'text': 'Test Content',
     }
 
-    # Faz uma requisição POST para a view
+    # Make a POST request to the view
     response = client.post(reverse('blog:post_new'), form_data)
 
-    # Verifica se a requisição foi bem-sucedida
+    # Verify if the request was successful
     assert response.status_code == 302
 
-    # Verifica se o post foi criado
+    # Verify if the post was created
     assert Post.objects.filter(title='Test Title', text='Test Content').exists()
 
-    # Verifica o comportamento quando o método da requisição não é "POST"
+    # Check the behavior when the request method is not "POST"
     response_get = client.get(reverse('blog:post_new'))
-    assert response_get.status_code == 200  # Ou o código de status adequado para visualização do formulário de criação
-    # Adicione outras asserções relacionadas à visualização do formulário aqui
+    assert response_get.status_code == 200
