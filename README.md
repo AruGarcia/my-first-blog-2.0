@@ -1,6 +1,8 @@
 # Extended Django Girls Project (Django Girls 2.0)
 
-![Logo do Projeto](https://djangogirls.org/static/img/global/resources/tutorial.jpg)
+![Logo do Projeto](https://64.media.tumblr.com/avatar_d3f67f5364f4_128.pnj),
+
+Site deployed on: [my-first-blog](https://my-first-blog.fly.dev/)
 
 This project is an extended version of the [Django Girls Tutorial](https://djangogirls.org/), in which new features and technologies have been added to apply web development knowledge. The application has been tested using Pytest and utilizes the PostgreSQL database.
 
@@ -22,8 +24,6 @@ This project is an extended version of the [Django Girls Tutorial](https://djang
 - [Other technologies used, such as Fly.io, Gunicorn, python-decouple, dj-database-url, psycopg2-binary, django-s3-folder-storage, collectfast, and ipython.]
 
 ## Prerequisites
-
-Before getting started, make sure you have the following tools and libraries installed:
 
 - Python 3.11
 - PostgreSQL
